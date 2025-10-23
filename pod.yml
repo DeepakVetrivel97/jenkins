@@ -20,7 +20,6 @@ spec:
           ports:
             - name: ui-port
               containerPort: 8080
-              hostPort: 8092
             - name: agent-port
               containerPort: 50000
           volumeMounts:
@@ -28,6 +27,5 @@ spec:
               mountPath: /var/jenkins_home
       volumes:
         - name: jenkins-home
-          hostpath:
-            path: /mnt/jenkins_home
-            type: DirectoryOrCreate
+          PersistentVolumeClaim:
+            claimName: jenkins-pvc
