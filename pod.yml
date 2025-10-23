@@ -28,4 +28,6 @@ spec:
               mountPath: /var/jenkins_home
       volumes:
         - name: jenkins-home
-          emptyDir: {}
+          hostpath:
+            path: /mnt/jenkins_home
+            type: DirectoryOrCreate
